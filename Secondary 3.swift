@@ -14,7 +14,7 @@ struct Secondary_3: View {
         
         NavigationStack{
             ZStack {
-                Color(red: 0.67, green: 0.80, blue: 0.40)
+                Color(red: 161/255, green: 197/255, blue: 102/255)
                     .ignoresSafeArea()
                 
                 VStack(spacing: 5) {
