@@ -37,8 +37,7 @@ struct Study: View {
                                     .foregroundColor(.white)
                                     .cornerRadius(10)
                                     .fontWeight(.bold)
-                                
-                            }
+                    }
                             }
                         }
                     }
@@ -50,4 +49,3 @@ struct Study: View {
 #Preview {
     Study()
 }
-
