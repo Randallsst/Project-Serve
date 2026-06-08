@@ -23,15 +23,15 @@ struct Secondary_3: View {
                         .fontWeight(.bold)
                         .fontWidth(.standard)
                     
-                        NavigationLink(destination: Moles()){
-                            Text("Moles")
-                                .font(.headline)
-                                .frame(width: 370, height: 60)
-                                .background(Color(red: 0.3, green: 0.6, blue: 0.25))
-                                .foregroundColor(.white)
-                                .cornerRadius(10)
-                            
-                        }
+                    NavigationLink(destination: Moles()){
+                        Text("Moles")
+                            .font(.headline)
+                            .frame(width: 370, height: 60)
+                            .background(Color(red: 0.3, green: 0.6, blue: 0.25))
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                        
+                    }
                     
                     NavigationLink(destination: Covalent_Bonding()) {
                         Text("Covalent Bonding")
@@ -41,18 +41,21 @@ struct Secondary_3: View {
                             .foregroundColor(.white)
                             .cornerRadius(10)
                     }
-
-                    Text("Chemical Equations")
-                        .font(.headline)
-                        .frame(width: 370, height: 60)
-                        .background(Color(red: 0.3, green: 0.6, blue: 0.25))
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                                }
-                            }
-                        }
+                    
+                    NavigationLink(destination: Chemical_Equation()) {
+                        Text("Chemical Equations")
+                            .font(.headline)
+                            .frame(width: 370, height: 60)
+                            .background(Color(red: 0.3, green: 0.6, blue: 0.25))
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
                     }
                 }
+            }
+        }
+    }
+}
+
 
 #Preview {
     Secondary_3()
