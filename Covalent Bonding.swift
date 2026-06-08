@@ -9,10 +9,29 @@ import SwiftUI
 
 struct Covalent_Bonding: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Color(red: 161/255, green: 197/255, blue: 102/255)
+                .ignoresSafeArea()
+            VStack {
+                Text("Covalent Bonding")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .fontWidth(.standard)
+                    .padding(.top, 8)
+                    .padding(.horizontal)
+                VStack {
+                    Text("Covalent Bonding")
+                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+                        .padding(.top, 1)
+                        .padding(.horizontal)
+                }
+            }
+
+        }
     }
 }
 
 #Preview {
     Covalent_Bonding()
 }
+
