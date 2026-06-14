@@ -20,7 +20,7 @@ struct Moles: View {
                     .padding(.top, 8)
                     .padding(.horizontal)
                 VStack {
-                    Text("Moles")
+                    Text("Moles content")
                         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
                         .padding(.top, 1)
                         .padding(.horizontal)

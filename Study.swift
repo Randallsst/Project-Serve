@@ -33,7 +33,8 @@ struct Study: View {
                                 Text("Secondary 4")
                                     .font(.title2)
                                     .frame(width: 370, height: 60)
-                                    .background(Color(red: 0.35, green: 0.70, blue: 0.30))
+                                    .background(Color(red: 0.47, green: 0.69, blue: 0.68))
+
                                     .foregroundColor(.white)
                                     .cornerRadius(10)
                                     .fontWeight(.bold)

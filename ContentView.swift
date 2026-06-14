@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
-
+    
     @State private var currentQuote = 0
-
+    
     let quotes = [
         "Maybe it is just the friends we made along the way",
         "SET YOUR HEART ABLAZE RAHHH",
@@ -20,24 +20,24 @@ struct ContentView: View {
         "Throughout heaven and earth I alone am the honoured one",
         "With the sole exception of hydrogen atom-"
     ]
-
+    
     var body: some View {
-
+        
         NavigationStack {
-
+            
             ZStack {
-
+                
                 // Background
                 Color(red: 0.67, green: 0.80, blue: 0.40)
                     .ignoresSafeArea()
-
+                
                 VStack(spacing: 20) {
-
+                    
                     // Quote Button
-                    Button(action: {
+                    Button {
                         currentQuote = (currentQuote + 1) % quotes.count
-                    }) {
-
+                    } label: {
+                        
                         RoundedRectangle(cornerRadius: 30)
                             .fill(Color(red: 0.56, green: 0.68, blue: 0.33))
                             .frame(height: 150)
@@ -51,12 +51,12 @@ struct ContentView: View {
                             .padding(.horizontal)
                     }
                     .padding(.top, 15)
-
+                    
                     // Calendar Card
-                    Button(action: {
-
-                    }) {
-
+                    Button {
+                        
+                    } label: {
+                        
                         RoundedRectangle(cornerRadius: 30)
                             .fill(
                                 Color(
@@ -68,11 +68,11 @@ struct ContentView: View {
                             .frame(width: 200, height: 200)
                             .overlay(
                                 VStack(spacing: 15) {
-
+                                    
                                     Text("Your next exam date:")
                                         .bold()
                                         .font(.title3)
-
+                                    
                                     Image(systemName: "calendar")
                                         .font(.system(size: 100))
                                 }
@@ -80,38 +80,52 @@ struct ContentView: View {
                     }
                     .frame(maxWidth: .infinity, alignment: .trailing)
                     .padding(.trailing, 20)
-
+                    
                     Spacer()
                 }
-
-                // Settings button (bottom-right)
+                
                 VStack {
                     Spacer()
-
+                    
                     HStack {
                         Spacer()
-
-                        NavigationLink(destination: Settings()) {
-                            Image(systemName: "gearshape")
-                                .frame(width:90,height:90)
+                        
+                        NavigationLink(destination: Study()) {
+                            Image(systemName: "book")
                                 .font(.title)
                                 .foregroundColor(.black)
-                                .padding()
-                            
-                                
                         }
+                        Spacer()
+                        NavigationLink(destination:FlashcardS3S4()){
+                            Image(systemName: "square.stack")
+                                .font(.title)
+                                .foregroundColor(.black)
+                        }
+                        
+                        Spacer()
+                        
+                        NavigationLink(destination: Settings()) {
+                            Image(systemName: "gearshape")
+                                .font(.title)
+                                .foregroundColor(.black)
+                        }
+                        
+                        Spacer()
                     }
-                    .frame(height: 70)
+                    .frame(height: 90)
                     .background(
-                        Color(red: 199/255, green: 229/255, blue: 138/255)
+                        Color(
+                            red: 199/255,
+                            green: 229/255,
+                            blue: 138/255
+                        )
                     )
-                
                 }
+                .ignoresSafeArea(edges: .bottom)
             }
         }
     }
 }
-
 #Preview {
-    ContentView()
-}
+        ContentView()
+    }
