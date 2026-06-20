@@ -2,14 +2,48 @@
 //  GOAL.swift
 //  Chem app
 //
-//  Created by Lauren Ng Sze Min on 10/6/26.
-//
 
 import SwiftUI
 
 struct GOAL: View {
+
+    @State private var testName = ""
+    @State private var targetGrade = ""
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+
+        ZStack {
+            Color(red: 161/255, green: 197/255, blue: 102/255)
+                .ignoresSafeArea()
+
+            VStack(alignment: .leading, spacing: 25) {
+
+                Text("Goals")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+
+                VStack(alignment: .leading) {
+                    Text("Test / Assignment")
+
+                    TextField("e.g. Class Test 1", text: $testName)
+                        .padding()
+                        .background(Color.white)
+                        .cornerRadius(10)
+                }
+
+                VStack(alignment: .leading) {
+                    Text("Target Grade")
+
+                    TextField("e.g. A1", text: $targetGrade)
+                        .padding()
+                        .background(Color.white)
+                        .cornerRadius(10)
+                }
+
+                Spacer()
+            }
+            .padding()
+        }
     }
 }
 
