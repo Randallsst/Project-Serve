@@ -13,10 +13,8 @@ struct Secondary_3: View {
     var body: some View {
         
         NavigationStack{
-            ZStack {
-                Color(red: 161/255, green: 197/255, blue: 102/255)
-                    .ignoresSafeArea()
-                
+       
+                                
                 VStack(spacing: 5) {
                     Text("Secondary 3")
                         .font(.title)
@@ -27,8 +25,9 @@ struct Secondary_3: View {
                         Text("Moles")
                             .font(.headline)
                             .frame(width: 370, height: 60)
-                            .background(Color(red: 0.3, green: 0.6, blue: 0.25))
-                            .foregroundColor(.white)
+                            .background(Color(red: 173 / 255, green: 216 / 255, blue: 230 / 255)
+)
+                            .foregroundColor(.black)
                             .cornerRadius(10)
                         
                     }
@@ -37,8 +36,9 @@ struct Secondary_3: View {
                         Text("Covalent Bonding")
                             .font(.headline)
                             .frame(width: 370, height: 60)
-                            .background(Color(red: 0.3, green: 0.6, blue: 0.25))
-                            .foregroundColor(.white)
+                            .background(Color(red: 173 / 255, green: 216 / 255, blue: 270 / 270)
+)
+                            .foregroundColor(.black)
                             .cornerRadius(10)
                     }
                     
@@ -46,15 +46,16 @@ struct Secondary_3: View {
                         Text("Chemical Equations")
                             .font(.headline)
                             .frame(width: 370, height: 60)
-                            .background(Color(red: 0.3, green: 0.6, blue: 0.25))
-                            .foregroundColor(.white)
+                            .background(Color(red: 173 / 255, green: 200 / 255, blue: 250 / 255)
+)
+                            .foregroundColor(.black)
                             .cornerRadius(10)
                     }
                 }
             }
         }
     }
-}
+
 
 
 #Preview {
