@@ -9,9 +9,7 @@ import SwiftUI
 
 struct Electrochemistry: View {
     var body: some View {
-        ZStack {
-            Color(red: 37/225, green: 150/225, blue: 190/225)
-                .ignoresSafeArea()
+       
             VStack {
                 Text("Electrochemistry")
                     .font(.title)
@@ -25,7 +23,7 @@ struct Electrochemistry: View {
                         .padding(.top, 1)
                         .padding(.horizontal)
                 }
-            }
+            
         }
     }
 }
