@@ -9,9 +9,7 @@ import SwiftUI
 
 struct Covalent_Bonding: View {
     var body: some View {
-        ZStack {
-            Color(red: 161/255, green: 197/255, blue: 102/255)
-                .ignoresSafeArea()
+        
             VStack {
                 Text("Covalent Bonding")
                     .font(.title)
@@ -25,7 +23,7 @@ struct Covalent_Bonding: View {
                         .padding(.top, 1)
                         .padding(.horizontal)
                 }
-            }
+            
 
         }
     }
@@ -34,4 +32,3 @@ struct Covalent_Bonding: View {
 #Preview {
     Covalent_Bonding()
 }
-
