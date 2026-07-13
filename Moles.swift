@@ -9,9 +9,7 @@ import SwiftUI
 
 struct Moles: View {
     var body: some View {
-        ZStack {
-            Color(red: 161/255, green: 197/255, blue: 102/255)
-                .ignoresSafeArea()
+       
             VStack {
                 Text("Moles")
                     .font(.title)
@@ -28,8 +26,7 @@ struct Moles: View {
             }
         }
     }
-}
+
 #Preview {
     Moles()
 }
-
