@@ -10,9 +10,7 @@ import SwiftUI
 struct Study: View {
     var body: some View {
         NavigationStack{
-            ZStack {
-                Color(red: 161/255, green: 197/255, blue: 102/255)
-                    .ignoresSafeArea()
+            
                 
                 VStack(spacing: 20) {
                     Text("Study")
@@ -24,10 +22,11 @@ struct Study: View {
                             .font(.title2)
                             .fontWeight(.bold)
                             .frame(width: 370, height: 60)
-                            .background(Color(red: 0.35, green: 0.70, blue: 0.30))
+                            .foregroundColor(.black)
+                            .background(Color(red: 0.786, green: 0.833, blue: 0.9)
                             .foregroundColor(.white)
                             .cornerRadius(10)
-                        
+                        )
                     }
                             VStack {NavigationLink(destination: Secondary_4()) {
                                 Text("Secondary 4")
@@ -35,14 +34,14 @@ struct Study: View {
                                     .frame(width: 370, height: 60)
                                     .background(Color(red: 0.47, green: 0.69, blue: 0.68))
 
-                                    .foregroundColor(.white)
+                                    .foregroundColor(.black)
                                     .cornerRadius(10)
                                     .fontWeight(.bold)
                     }
                             }
                         }
                     }
-                }
+                
             }
         }
     }
