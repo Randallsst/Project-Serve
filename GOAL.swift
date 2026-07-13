@@ -13,7 +13,7 @@ struct GOAL: View {
     var body: some View {
 
         ZStack {
-            Color(red: 161/255, green: 197/255, blue: 102/255)
+            Color(red: 173 / 255, green: 216 / 255, blue: 230 / 255)
                 .ignoresSafeArea()
 
             VStack(alignment: .leading, spacing: 25) {
