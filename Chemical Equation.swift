@@ -1,17 +1,8 @@
-//
-//  Chemical Equation.swift
-//  Chem_App
-//
-//  Created by Leo Andreas Mansukhani on 8/6/26.
-//
-
 import SwiftUI
 
 struct Chemical_Equation: View {
     var body: some View {
-        ZStack {
-            Color(red: 161/255, green: 197/255, blue: 102/255)
-                .ignoresSafeArea()
+        
             VStack {
                 Text("Chemical Equations")
                     .font(.title)
@@ -102,7 +93,7 @@ struct Chemical_Equation: View {
                     }
                 }
                 
-            }
+            
         }
 
 #Preview {
