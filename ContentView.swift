@@ -7,125 +7,145 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    
+struct HomeView: View {
     @State private var currentQuote = 0
-    
+    @StateObject private var deckStore = DeckStore()
+
     let quotes = [
-        "Maybe it is just the friends we made along the way",
-        "SET YOUR HEART ABLAZE RAHHH",
-        "Set your school ablaze",
-        "Life is not sunshine rainbow",
-        "BOMBOCLAT",
-        "Throughout heaven and earth I alone am the honoured one",
-        "With the sole exception of hydrogen atom-"
+        "SET YOUR HEART ABLAZE",
+        "If you cant sacrifice something you cannot change anything",
+        "The road ahead is never a straight one",
+        "Study because of discipline, not motivation",
+        "Never put off until tomorrow what can be done today",
+        "If you want something bad enough, dont wish for it to happen, make it happen"
     ]
-    
+
     var body: some View {
-        
         NavigationStack {
-            
             ZStack {
-                
-                // Background
-                Color(red: 0.67, green: 0.80, blue: 0.40)
+                Color.white
                     .ignoresSafeArea()
-                
-                VStack(spacing: 20) {
-                    
-                    // Quote Button
+
+                VStack(spacing: 18) {
                     Button {
                         currentQuote = (currentQuote + 1) % quotes.count
                     } label: {
-                        
-                        RoundedRectangle(cornerRadius: 30)
-                            .fill(Color(red: 0.56, green: 0.68, blue: 0.33))
-                            .frame(height: 150)
-                            .overlay(
-                                Text(quotes[currentQuote])
-                                    .font(.system(size: 28, weight: .medium))
-                                    .multilineTextAlignment(.center)
-                                    .foregroundColor(.black)
-                                    .padding()
-                            )
-                            .padding(.horizontal)
+                        VStack(alignment: .leading, spacing: 12) {
+                            Text("Quote of the Day")
+                                .font(.headline)
+                                .foregroundStyle(.black.opacity(0.75))
+
+                            Text(quotes[currentQuote])
+                                .font(.system(size: 24, weight: .semibold))
+                                .multilineTextAlignment(.leading)
+                                .foregroundStyle(.black)
+                                .fixedSize(horizontal: false, vertical: true)
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(20)
+                        .frame(height: 150)
+                        .background(
+                            RoundedRectangle(cornerRadius: 28, style: .continuous)
+                                .fill(Color(red: 173/255, green: 216/255, blue: 230/255))
+                        )
+                        .shadow(color: .black.opacity(0.08), radius: 8, x: 0, y: 4)
                     }
-                    .padding(.top, 15)
-                    
-                    // Calendar Card
-                    Button {
-                        
-                    } label: {
-                        
-                        RoundedRectangle(cornerRadius: 30)
-                            .fill(
-                                Color(
-                                    red: 199/255,
-                                    green: 229/255,
-                                    blue: 138/255
-                                )
-                            )
-                            .frame(width: 200, height: 200)
-                            .overlay(
-                                VStack(spacing: 15) {
-                                    
-                                    Text("Your next exam date:")
-                                        .bold()
-                                        .font(.title3)
-                                    
-                                    Image(systemName: "calendar")
-                                        .font(.system(size: 100))
-                                }
-                            )
-                    }
-                    .frame(maxWidth: .infinity, alignment: .trailing)
-                    .padding(.trailing, 20)
-                    
-                    Spacer()
-                }
-                
-                VStack {
-                    Spacer()
-                    
+                    .buttonStyle(.plain)
+                    .padding(.horizontal, 20)
+                    .padding(.top, 10)
+
                     HStack {
                         Spacer()
-                        
-                        NavigationLink(destination: Study()) {
-                            Image(systemName: "book")
-                                .font(.title)
-                                .foregroundColor(.black)
+
+                        Button {
+                        } label: {
+                            VStack(spacing: 10) {
+                                Text("Next exam in")
+                                    .font(.headline)
+                                    .foregroundStyle(.black.opacity(0.75))
+
+                                Text(daysRemainingText())
+                                    .font(.system(size: 34, weight: .bold))
+                                    .foregroundStyle(.black)
+
+                                Text("days")
+                                    .font(.subheadline)
+                                    .foregroundStyle(.black.opacity(0.7))
+                                Text("Edit date in Settings tab")
+                            }
+                            .frame(width: 220, height: 200)
+                            .background(
+                                RoundedRectangle(cornerRadius: 28, style: .continuous)
+                                    .fill(Color(red: 173/255, green: 216/255, blue: 230/255))
+                            )
+                            .shadow(color: .black.opacity(0.08), radius: 8, x: 0, y: 4)
                         }
-                        Spacer()
-                        NavigationLink(destination:FlashcardS3S4()){
-                            Image(systemName: "square.stack")
-                                .font(.title)
-                                .foregroundColor(.black)
-                        }
-                        
-                        Spacer()
-                        
-                        NavigationLink(destination: Settings()) {
-                            Image(systemName: "gearshape")
-                                .font(.title)
-                                .foregroundColor(.black)
-                        }
-                        
-                        Spacer()
+                        .buttonStyle(.plain)
+                        .padding(.trailing, 20)
                     }
-                    .frame(height: 90)
-                    .background(
-                        Color(
-                            red: 199/255,
-                            green: 229/255,
-                            blue: 138/255
-                        )
-                    )
+
+                    Spacer(minLength: 0)
                 }
-                .ignoresSafeArea(edges: .bottom)
+            }
+            .safeAreaInset(edge: .bottom) {
+                HStack {
+                    Spacer()
+
+                    NavigationLink(destination: ExamTip()) {
+                        Image(systemName: "lightbulb")
+                            .font(.title2)
+                            .foregroundStyle(.black)
+                            .frame(width: 44, height: 44)
+                    }
+
+                    Spacer()
+
+                    NavigationLink(destination: Study()) {
+                        Image(systemName: "book")
+                            .font(.title2)
+                            .foregroundStyle(.black)
+                            .frame(width: 44, height: 44)
+                    }
+
+                    Spacer()
+
+                    NavigationLink(destination: FlashcardHomeView(store: deckStore)) {
+                        Image(systemName: "square.stack")
+                            .font(.title2)
+                            .foregroundStyle(.black)
+                            .frame(width: 44, height: 44)
+                    }
+
+                    Spacer()
+
+                    NavigationLink(destination: Settings()) {
+                        Image(systemName: "gearshape")
+                            .font(.title2)
+                            .foregroundStyle(.black)
+                            .frame(width: 44, height: 44)
+                    }
+
+                    Spacer()
+                }
+                .padding(.vertical, 14)
+                .background(.ultraThinMaterial)
+                .overlay(Divider(), alignment: .top)
             }
         }
     }
-}
-#Preview {
-        ContentView()
+
+    private func daysRemainingText() -> String {
+        let savedDate = UserDefaults.standard.object(forKey: "examDate") as? Date
+
+        guard let examDate = savedDate else {
+            return "--"
+        }
+
+        let days = Calendar.current.dateComponents([.day], from: Date(), to: examDate).day ?? 0
+        return days > 0 ? "\(days)" : "0"
     }
+}
+
+#Preview {
+    HomeView()
+}
