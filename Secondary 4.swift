@@ -8,41 +8,40 @@ import SwiftUI
 
 struct Secondary_4: View {
     var body: some View {
-        ZStack {
-            Color(red: 119/255, green: 178/255, blue: 175/255)
-                .ignoresSafeArea()
+        
             VStack {
                 Text("Secondary 4")
                     .font(.title)
                     .fontWeight(.bold)
                     .fontWidth(.standard)
                 VStack
-                {NavigationLink(destination: Secondary_3())
-                {
-                Text("Reactivity Series")
-                        .font(.headline)
-                        .frame(width: 370, height: 60)
-                        .background(Color(red: 123/255, green: 207/255, blue: 183/255))
-                        .foregroundColor(.black)
-                        .cornerRadius(10)
-                    }
-                    }
-                VStack
-                {NavigationLink(destination: Secondary_3())
+                {NavigationLink(destination: Reactivity_Series())
                     {
-                Text("Electrochemistry")
-                        .font(.headline)
-                        .frame(width: 370, height: 60)
-                        .background(Color(red: 123/255, green: 207/255, blue: 183/255))
-                        .foregroundColor(.black)
-                        .cornerRadius(10)
-                    }
+                        Text("Reactivity Series")
+                            .font(.headline)
+                            .frame(width: 370, height: 60)
+                            .background(Color(red: 173 / 255, green: 216 / 255, blue: 230 / 255))
+                            .foregroundColor(.black)
+                            .cornerRadius(10)
                     }
                 }
+                VStack
+                {NavigationLink(destination: Electrochemistry())
+                    {
+                        Text("Electrochemistry")
+                            .font(.headline)
+                            .foregroundColor(.black)
+                            .frame(width: 370, height: 60)
+                            .background(Color(red: 173 / 255, green: 216 / 255, blue: 270 / 270)
+                                
+                                .cornerRadius(10)
+                            )
+                    }
                 }
-            }
+            
         }
-
+    }
+}
 #Preview {
     Secondary_4()
 }
